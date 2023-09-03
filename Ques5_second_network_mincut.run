@@ -1,0 +1,45 @@
+reset; 
+var uS; 
+var uA; 
+var uB; 
+var uC; 
+var uD; 
+var uE; 
+var uF; 
+var uG; 
+var uH; 
+var uI; 
+var uJ; 
+var uT; 
+minimize z: 11*max(0, uS-uA) + 15*max(0, uS-uB) + 
+0*max(0, uS-uC) + 
+18*max(0, uA-uE) + 4*max(0, uA-uF) + 
+3*max(0, uB-uA) + 5*max(0, uB-uC) + 
+6*max(0, uC-uD) + 3*max(0, uC-uG) + 11*max(0, uC-uH) 
++ 
+4*max(0, uD-uC) + 17*max(0, uD-uG) + 6*max(0, uD-uH) 
++ 
+3*max(0, uE-uD) + 13*max(0, uE-uI) + 
+12*max(0, uF-uA) + 4*max(0, uF-uD) + 21*max(0, uF-uT) 
++ 
+4*max(0, uG-uH) + 9*max(0, uG-uI) + 4*max(0, uG-uJ) + 
+3*max(0, uG-uT) + 
+4*max(0, uH-uG) + 5*max(0, uH-uJ) + 4*max(0, uH-uT) + 
+7*max(0, uI-uJ) + 9*max(0, uI-uT) + 
+2*max(0, uJ-uH) + 15*max(0, uJ-uT); 
+s.t. c1: uS = 1; 
+s.t. c2: uT = 0; 
+s.t. c3: uA >= 0; 
+s.t. c4: uB >= 0; 
+s.t. c5: uC >= 0; 
+s.t. c6: uD >= 0; 
+s.t. c7: uE >= 0; 
+s.t. c8: uF >= 0; 
+s.t. c9: uG >= 0; 
+s.t. c10: uH >= 0; 
+s.t. c11: uI >= 0;
+s.t. c12: uJ >= 0; 
+s.t. c13: uT >= 0;
+option solver cplex; 
+solve; 
+display z,uS,uT,uA,uB,uC,uE,uF,uG,uH,uI,uJ,uT;
